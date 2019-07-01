@@ -23,14 +23,16 @@
                     return vars;
                 }
             let vars = getUrlVars();
+            console.log(vars)
             if('c' in vars) {
                  let code = vars['c']
+                 console.log(code)
                  axios.get('https://api.apply-now.io/api/v1/s/'+code)
                     .then(({data}) => {
                         window.location.replace(data);
                     })
              }
-            window.location.replace("https://usjob.github.io/apply/apply");
+            // window.location.replace("https://usjob.github.io/apply/apply");
         </script>
     </body>
 </html>
