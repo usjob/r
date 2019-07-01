@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Redirecting..</title>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142791202-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-142791202-1');
+        </script>
+
+    </head>
+    <body>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            function getUrlVars() {
+                    var vars = {};
+                    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                        vars[key] = value;
+                    });
+                    return vars;
+                }
+            let vars = getUrlVars();
+            if('c' in vars) {
+                 let code = vars['c']
+                 axios.get('https://api.apply-now.io/api/v1/s/'+code)
+                    .then(({data}) => {
+                        window.location.replace(data);
+                    })
+             }
+            window.location.replace("https://usjob.github.io/apply/apply");
+        </script>
+    </body>
+</html>
